@@ -1,4 +1,5 @@
 import EventItem from "./event-item";
+import style from "./event-list.module.scss";
 
 export interface EventItemModel {
     id: number;
@@ -28,6 +29,6 @@ export default function EventList(props: { events: EventItemModel[] }) {
     });
 
     return (
-        <ul>{renderedEvents}</ul>
+        <ul className={style.list}>{renderedEvents}</ul>
     );
 }
