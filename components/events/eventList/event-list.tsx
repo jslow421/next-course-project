@@ -1,0 +1,33 @@
+import EventItem from "./event-item";
+
+export interface EventItemModel {
+    id: number;
+    title: string;
+    description: string;
+    eventLocation: string;
+    date: string;
+    image: string;
+    isFeatured: boolean;
+}
+
+export default function EventList(props: { events: EventItemModel[] }) {
+    const renderedEvents: any = [];
+    console.log(props);
+
+    props.events.map((event) => {
+        renderedEvents.push(
+            <EventItem key={event.id}
+                       id={event.id}
+                       date={event.date}
+                       image={event.image}
+                       isFeatured={event.isFeatured}
+                       eventLocation={event.eventLocation}
+                       title={event.title}
+                       description={event.description}/>
+        );
+    });
+
+    return (
+        <ul>{renderedEvents}</ul>
+    );
+}
