@@ -1,7 +1,7 @@
 export default function EventPage() {
     return (
         <div>
-            <h1>Event Page by ID</h1>
+            <h1>Single Event Page by ID</h1>
         </div>
-    )
+    );
 }
