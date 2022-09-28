@@ -15,6 +15,10 @@ export default function EventPage() {
     const event = getEventById(id);
     let eventModel = {} as EventItemModel;
 
+    function goBack() {
+        router.back();
+    }
+
     if (event?.id) {
         eventModel = {
             id: parseInt(event.id),
@@ -46,6 +50,9 @@ export default function EventPage() {
             <EventContent>
                 <p>{eventModel.description}</p>
             </EventContent>
+            <div className="center">
+                <Button onClick={goBack}>Back</Button>
+            </div>
         </Fragment>
     );
 }

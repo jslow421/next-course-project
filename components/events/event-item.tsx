@@ -4,9 +4,9 @@ import Button from "../ui/button/button";
 import DateIcon from "../icons/date-icon";
 import AddressIcon from "../icons/address-icon";
 import ArrowRightIcon from "../icons/arrow-right-icon";
+import {Fragment} from "react";
 
 export default function EventItem(props: EventItemModel) {
-
     const humanReadableDate = new Date(props.date).toLocaleDateString("en-us", {
         day: "numeric",
         month: "long",
@@ -16,27 +16,29 @@ export default function EventItem(props: EventItemModel) {
     const exploreLink = `/events/${props.id}`;
 
     return (
-        <li className={style.item}>
-            <img src={"/" + props.image} alt={props.title} />
-            <div className={style.content}>
-                <div>
-                    <h2>{props.title}</h2>
+        <Fragment>
+            <li className={style.item}>
+                <img src={"/" + props.image} alt={props.title} />
+                <div className={style.content}>
+                    <div>
+                        <h2>{props.title}</h2>
+                    </div>
+                    <div className={style.date}>
+                        <DateIcon/>
+                        <time>{humanReadableDate}</time>
+                    </div>
+                    <div className={style.address}>
+                        <AddressIcon/>
+                        <address>{formattedAddress}</address>
+                    </div>
                 </div>
-                <div className={style.date}>
-                    <DateIcon/>
-                    <time>{humanReadableDate}</time>
+                <div className={style.actions}>
+                    <Button  link={exploreLink}>
+                        <span>Explore Event</span>
+                        <span><ArrowRightIcon/></span>
+                    </Button>
                 </div>
-                <div className={style.address}>
-                    <AddressIcon/>
-                    <address>{formattedAddress}</address>
-                </div>
-            </div>
-            <div className={style.actions}>
-                <Button  link={exploreLink}>
-                    <span>Explore Event</span>
-                    <span><ArrowRightIcon/></span>
-                </Button>
-            </div>
-        </li>
+            </li>
+        </Fragment>
     );
 }
