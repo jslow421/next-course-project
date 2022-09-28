@@ -1,4 +1,4 @@
-import EventItem from "./event-item";
+import EventItem from "../event-item";
 import style from "./event-list.module.scss";
 
 export interface EventItemModel {

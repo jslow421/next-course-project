@@ -5,6 +5,8 @@ import {Fragment} from "react";
 import EventSummary from "../../../components/event-detail/event-summary";
 import EventLogistics from "../../../components/event-detail/event-logistics";
 import EventContent from "../../../components/event-detail/event-content";
+import Button from "../../../components/ui/button/button";
+import ErrorAlert from "../../../components/ui/error-alert/error-alert";
 
 
 export default function EventPage() {
@@ -24,7 +26,16 @@ export default function EventPage() {
             isFeatured: event?.isFeatured
         } as EventItemModel
     } else {
-        return <p>No event found</p>
+        return (
+            <Fragment>
+                <ErrorAlert>
+                    <p>No event found</p>
+                    <div className="center">
+                        <Button link="/events">View All Events</Button>
+                    </div>
+                </ErrorAlert>
+            </Fragment>
+        )
     }
 
     return (

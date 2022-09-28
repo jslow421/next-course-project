@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.scss'
 import Link from "next/link";
 import {getAllEvents, getFeaturedEvents} from "../dummy-data";
 import EventList, {EventItemModel} from "../components/events/eventList/event-list";
+import EventsSearch from "../components/events/events-search";
 
 const Home: NextPage = () => {
 

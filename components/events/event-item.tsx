@@ -1,9 +1,9 @@
-import {EventItemModel} from "./event-list";
+import {EventItemModel} from "./eventList/event-list";
 import style from "./event-item.module.scss";
-import Button from "../../ui/button";
-import DateIcon from "../../icons/date-icon";
-import AddressIcon from "../../icons/address-icon";
-import ArrowRightIcon from "../../icons/arrow-right-icon";
+import Button from "../ui/button/button";
+import DateIcon from "../icons/date-icon";
+import AddressIcon from "../icons/address-icon";
+import ArrowRightIcon from "../icons/arrow-right-icon";
 
 export default function EventItem(props: EventItemModel) {
 
