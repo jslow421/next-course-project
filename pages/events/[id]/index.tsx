@@ -29,10 +29,11 @@ export default function EventPage() {
 
     return (
         <Fragment>
-            <EventSummary title={event.title} />
-            <EventLogistics date={event.date} address={event.location} image={event.image} imageAlt={event.title} />
+            <EventSummary title={eventModel.title}/>
+            <EventLogistics date={eventModel.date} address={eventModel.eventLocation} image={eventModel.image}
+                            imageAlt={eventModel.title}/>
             <EventContent>
-                <p>{event.description}</p>
+                <p>{eventModel.description}</p>
             </EventContent>
         </Fragment>
     );

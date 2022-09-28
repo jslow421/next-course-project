@@ -82,12 +82,12 @@
   }
 
   .item img {
-    width: 40%;
+    width: 50%;
     height: 14rem;
   }
 
   .content {
-    width: 60%;
+    width: 50%;
     padding: 0;
     text-align: left;
   }
@@ -99,5 +99,11 @@
   .actions {
     flex-direction: row;
     justify-content: flex-end;
+    width: 20%;
+    height: 20%;
+
+    >a {
+      margin-top: 36px;
+    }
   }
 }
