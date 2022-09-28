@@ -1,6 +1,9 @@
 import {EventItemModel} from "./event-list";
-import Link from "next/link";
 import style from "./event-item.module.scss";
+import Button from "../../ui/button";
+import DateIcon from "../../icons/date-icon";
+import AddressIcon from "../../icons/address-icon";
+import ArrowRightIcon from "../../icons/arrow-right-icon";
 
 export default function EventItem(props: EventItemModel) {
 
@@ -20,14 +23,19 @@ export default function EventItem(props: EventItemModel) {
                     <h2>{props.title}</h2>
                 </div>
                 <div className={style.date}>
+                    <DateIcon/>
                     <time>{humanReadableDate}</time>
                 </div>
                 <div className={style.address}>
+                    <AddressIcon/>
                     <address>{formattedAddress}</address>
                 </div>
             </div>
             <div className={style.actions}>
-                <Link href={exploreLink}>Explore Event</Link>
+                <Button link={exploreLink}>
+                    <span>Explore Event</span>
+                    <span><ArrowRightIcon/></span>
+                </Button>
             </div>
         </li>
     );
