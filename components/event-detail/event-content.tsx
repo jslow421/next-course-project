@@ -1,4 +1,4 @@
-import classes from './event-content.module.css';
+import classes from './event-content.module.scss';
 import React from "react";
 
 function EventContent(props: {children: React.ReactNode}) {
