@@ -13,7 +13,6 @@ export interface EventItemModel {
 
 export default function EventList(props: { events: EventItemModel[] }) {
     const renderedEvents: any = [];
-    console.log(props);
 
     props.events.map((event) => {
         renderedEvents.push(

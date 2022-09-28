@@ -17,7 +17,7 @@ export default function EventItem(props: EventItemModel) {
 
     return (
         <li className={style.item}>
-            <img src={"/" + props.image} alt={props.title} height="100px" width="100px"/>
+            <img src={"/" + props.image} alt={props.title} />
             <div className={style.content}>
                 <div>
                     <h2>{props.title}</h2>
@@ -32,7 +32,7 @@ export default function EventItem(props: EventItemModel) {
                 </div>
             </div>
             <div className={style.actions}>
-                <Button link={exploreLink}>
+                <Button  link={exploreLink}>
                     <span>Explore Event</span>
                     <span><ArrowRightIcon/></span>
                 </Button>
