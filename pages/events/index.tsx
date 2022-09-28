@@ -1,6 +1,8 @@
 import Link from "next/link";
 import EventList, {EventItemModel} from "../../components/events/eventList/event-list";
 import {getAllEvents, getFeaturedEvents} from "../../dummy-data";
+import EventsSearch from "../../components/events/events-search";
+import {Fragment} from "react";
 
 export default function EventsListPage() {
     const allEvents: any[] = getAllEvents();
@@ -18,9 +20,10 @@ export default function EventsListPage() {
     });
 
     return (
-        <div>
+        <Fragment>
             <h1>All Events list page</h1>
+            <EventsSearch />
             <EventList events={formattedEvents} />
-        </div>
+        </Fragment>
     );
 }
