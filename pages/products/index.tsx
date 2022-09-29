@@ -1,14 +1,22 @@
 import {GetStaticProps} from "next";
+import fs from "fs";
+import path from "path";
 
 export interface ProductModel {
     id: string;
     title: string;
 }
 
-export default function ProductsPage(props: {products: ProductModel[]}) {
+export interface ProductProps {
+    products: ProductModel[];
+}
+
+export default function ProductsPage(props: {products: ProductProps}) {
+    console.log("Running");
+
     return (
         <ul>
-            {props.products.map((product) => (
+            {props.products.products.map((product: ProductModel) => (
                 <li key={product.id}>{product.title}</li>
             ))}
         </ul>
@@ -16,9 +24,13 @@ export default function ProductsPage(props: {products: ProductModel[]}) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+    const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
+    const data = await fs.readFileSync(filePath);
+    const parsedData: ProductProps = JSON.parse(data.toString());
+
     return {
         props: {
-            products: [{id: "p1", title: "Product 1"}, {id: "p2", title: "Product 2"}],
+            products: parsedData,
         },
     };
 };
