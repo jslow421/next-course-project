@@ -12,7 +12,6 @@ export interface ProductProps {
 }
 
 export default function ProductsPage(props: {products: ProductProps}) {
-    console.log("Running");
 
     return (
         <ul>
