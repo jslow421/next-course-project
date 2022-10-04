@@ -7,6 +7,11 @@ import {ProductModel, ProductProps} from "./index";
 export default function ProductDetailPage(props: {loadedProduct: ProductModel}) {
     const loadedProduct: ProductModel = props.loadedProduct;
 
+    // Handle situations where fallback needs to load
+    if (!loadedProduct) {
+        return <p>Loading</p>
+    }
+
     return (
         <Fragment>
             <h1>{loadedProduct.title}</h1>
@@ -40,6 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
             {params: {pid: "p2"}},
             {params: {pid: "p3"}},
         ],
-        fallback: false
+        fallback: false // Can set fallback to true - even pages not listed can be valid & loaded when visited
+        // Can set fallback to 'blocking' and remove the loading values - next will wait until content is back
     };
 }
